@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeTaskDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbldesignations">
+    <Key>
+      <PropertyRef Name="Designation_Id" />
+    </Key>
+    <Property Name="Designation_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designation" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblemployee_experiance_details">
+    <Key>
+      <PropertyRef Name="Experiance_Id" />
+    </Key>
+    <Property Name="Experiance_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emp_Id" Type="int" />
+    <Property Name="Company_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Form_Date" Type="varchar" MaxLength="100" />
+    <Property Name="To_Date" Type="varchar" MaxLength="100" />
+    <Property Name="Designation_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="tblemployee_experiance_projects">
+    <Key>
+      <PropertyRef Name="Project_Id" />
+    </Key>
+    <Property Name="Project_Id" Type="int" Nullable="false" />
+    <Property Name="Experiance_Id" Type="int" />
+    <Property Name="Project_Name" Type="varchar" MaxLength="100" />
+    <Property Name="From_Duration" Type="varchar" MaxLength="100" />
+    <Property Name="To_Duration" Type="varchar" MaxLength="100" />
+    <Property Name="Team_Size" Type="int" />
+    <Property Name="Role" Type="varchar" MaxLength="100" />
+    <Property Name="Project_Description" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tblemployees">
+    <Key>
+      <PropertyRef Name="Emp_Id" />
+    </Key>
+    <Property Name="Emp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emp_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Email_Address" Type="varchar" MaxLength="100" />
+    <Property Name="mobile_number" Type="varchar" MaxLength="20" />
+    <Property Name="Employee_Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="20" />
+    <Property Name="Profile_Photo" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblproject_responsibility">
+    <Key>
+      <PropertyRef Name="Responsibility_Id" />
+    </Key>
+    <Property Name="Responsibility_Id" Type="int" Nullable="false" />
+    <Property Name="Project_Id" Type="int" />
+    <Property Name="Responsibility" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="frkdi">
+    <End Role="tbldesignations" Type="Self.tbldesignations" Multiplicity="0..1" />
+    <End Role="tblemployee_experiance_details" Type="Self.tblemployee_experiance_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbldesignations">
+        <PropertyRef Name="Designation_Id" />
+      </Principal>
+      <Dependent Role="tblemployee_experiance_details">
+        <PropertyRef Name="Designation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="frkei">
+    <End Role="tblemployees" Type="Self.tblemployees" Multiplicity="0..1" />
+    <End Role="tblemployee_experiance_details" Type="Self.tblemployee_experiance_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblemployees">
+        <PropertyRef Name="Emp_Id" />
+      </Principal>
+      <Dependent Role="tblemployee_experiance_details">
+        <PropertyRef Name="Emp_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="frkped">
+    <End Role="tblemployee_experiance_details" Type="Self.tblemployee_experiance_details" Multiplicity="0..1" />
+    <End Role="tblemployee_experiance_projects" Type="Self.tblemployee_experiance_projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblemployee_experiance_details">
+        <PropertyRef Name="Experiance_Id" />
+      </Principal>
+      <Dependent Role="tblemployee_experiance_projects">
+        <PropertyRef Name="Experiance_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="frkpid">
+    <End Role="tblemployee_experiance_projects" Type="Self.tblemployee_experiance_projects" Multiplicity="0..1" />
+    <End Role="tblproject_responsibility" Type="Self.tblproject_responsibility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblemployee_experiance_projects">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="tblproject_responsibility">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmployeeTaskDbModelStoreContainer">
+    <EntitySet Name="tbldesignations" EntityType="Self.tbldesignations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblemployee_experiance_details" EntityType="Self.tblemployee_experiance_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblemployee_experiance_projects" EntityType="Self.tblemployee_experiance_projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblemployees" EntityType="Self.tblemployees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblproject_responsibility" EntityType="Self.tblproject_responsibility" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="frkdi" Association="Self.frkdi">
+      <End Role="tbldesignations" EntitySet="tbldesignations" />
+      <End Role="tblemployee_experiance_details" EntitySet="tblemployee_experiance_details" />
+    </AssociationSet>
+    <AssociationSet Name="frkei" Association="Self.frkei">
+      <End Role="tblemployees" EntitySet="tblemployees" />
+      <End Role="tblemployee_experiance_details" EntitySet="tblemployee_experiance_details" />
+    </AssociationSet>
+    <AssociationSet Name="frkped" Association="Self.frkped">
+      <End Role="tblemployee_experiance_details" EntitySet="tblemployee_experiance_details" />
+      <End Role="tblemployee_experiance_projects" EntitySet="tblemployee_experiance_projects" />
+    </AssociationSet>
+    <AssociationSet Name="frkpid" Association="Self.frkpid">
+      <End Role="tblemployee_experiance_projects" EntitySet="tblemployee_experiance_projects" />
+      <End Role="tblproject_responsibility" EntitySet="tblproject_responsibility" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

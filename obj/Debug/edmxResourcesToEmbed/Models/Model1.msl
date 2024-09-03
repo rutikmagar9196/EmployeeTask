@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmployeeTaskDbModelStoreContainer" CdmEntityContainer="EmployeeTaskDbEntities">
+    <EntitySetMapping Name="tbldesignations">
+      <EntityTypeMapping TypeName="EmployeeTaskDbModel.tbldesignation">
+        <MappingFragment StoreEntitySet="tbldesignations">
+          <ScalarProperty Name="Designation_Id" ColumnName="Designation_Id" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblemployee_experiance_details">
+      <EntityTypeMapping TypeName="EmployeeTaskDbModel.tblemployee_experiance_details">
+        <MappingFragment StoreEntitySet="tblemployee_experiance_details">
+          <ScalarProperty Name="Experiance_Id" ColumnName="Experiance_Id" />
+          <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="Form_Date" ColumnName="Form_Date" />
+          <ScalarProperty Name="To_Date" ColumnName="To_Date" />
+          <ScalarProperty Name="Designation_Id" ColumnName="Designation_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblemployee_experiance_projects">
+      <EntityTypeMapping TypeName="EmployeeTaskDbModel.tblemployee_experiance_projects">
+        <MappingFragment StoreEntitySet="tblemployee_experiance_projects">
+          <ScalarProperty Name="Project_Id" ColumnName="Project_Id" />
+          <ScalarProperty Name="Experiance_Id" ColumnName="Experiance_Id" />
+          <ScalarProperty Name="Project_Name" ColumnName="Project_Name" />
+          <ScalarProperty Name="From_Duration" ColumnName="From_Duration" />
+          <ScalarProperty Name="To_Duration" ColumnName="To_Duration" />
+          <ScalarProperty Name="Team_Size" ColumnName="Team_Size" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Project_Description" ColumnName="Project_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblemployees">
+      <EntityTypeMapping TypeName="EmployeeTaskDbModel.tblemployee">
+        <MappingFragment StoreEntitySet="tblemployees">
+          <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+          <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
+          <ScalarProperty Name="Email_Address" ColumnName="Email_Address" />
+          <ScalarProperty Name="mobile_number" ColumnName="mobile_number" />
+          <ScalarProperty Name="Employee_Code" ColumnName="Employee_Code" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Profile_Photo" ColumnName="Profile_Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblproject_responsibility">
+      <EntityTypeMapping TypeName="EmployeeTaskDbModel.tblproject_responsibility">
+        <MappingFragment StoreEntitySet="tblproject_responsibility">
+          <ScalarProperty Name="Responsibility_Id" ColumnName="Responsibility_Id" />
+          <ScalarProperty Name="Project_Id" ColumnName="Project_Id" />
+          <ScalarProperty Name="Responsibility" ColumnName="Responsibility" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
