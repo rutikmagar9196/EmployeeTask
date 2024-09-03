@@ -19,42 +19,46 @@
             @using (Html.BeginForm("Register", "Empolyee", FormMethod.Post, new {@enctype="multipart/form-data"}))
             {
               <table>
-                 <tr>
-                    <td>Empolyee ID</td>
-                    <td>@Html.TextBoxFor(e => e.Emp_Id)</td>
-                </tr>
-                <tr>
-                    <td>Empolyee Name</td>
-                    <td>@Html.TextBoxFor(e => e.Emp_Name)</td>
-                </tr>
-                <tr>
-                    <td>Email Address</td>
-                    <td>@Html.TextBoxFor(e => e.Email_Address)</td>
-                </tr>
-                <tr>
-                    <td>Mobile Number</td>
-                    <td>@Html.TextBoxFor(e => e.mobile_number)</td>
-                </tr>
-                <tr>
-                    <td>Empolyee Code</td>
-                    <td>@Html.TextBoxFor(e => e.Employee_Code , new { @readonly = "readonly" }</td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td>@Html.PasswordFor(e => e.password)</td>
-                </tr>
-                <tr>
-                    <td>Profile</td>
-                    <td>
-                        <input type="file" name="photo" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" value="Submit"/>
-                    </td>
-                    
-                </tr>
+                  <tr>
+                      <td>Empolyee ID</td>
+                      <td>@Html.TextBoxFor(e => e.Emp_Id)</td>
+                  </tr>
+                  <tr>
+                      <td>Empolyee Name</td>
+                      <td>@Html.TextBoxFor(e => e.Emp_Name)</td>
+                  </tr>
+                  <tr>
+                      <td>Email Address</td>
+                      <td>@Html.TextBoxFor(e => e.Email_Address)</td>
+                  </tr>
+                  <tr>
+                      <td>Email Surname</td>
+                      <td>@Html.TextBoxFor(e => e.Email_Address)</td>
+                  </tr>
+                  <tr>
+                      <td>Mobile Number</td>
+                      <td>@Html.TextBoxFor(e => e.mobile_number)</td>
+                  </tr>
+                  <tr>
+                      <td>Empolyee Code</td>
+                      <td>@Html.TextBoxFor(e => e.Employee_Code, new { @readonly = "readonly" }</td>
+                  </tr>
+                  <tr>
+                      <td>Password</td>
+                      <td>@Html.PasswordFor(e => e.password)</td>
+                  </tr>
+                  <tr>
+                      <td>Profile</td>
+                      <td>
+                          <input type="file" name="photo" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <td colspan="2">
+                          <input type="submit" value="Submit" />
+                      </td>
+
+                  </tr>
 
               </table>
 
